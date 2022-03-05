@@ -1,5 +1,10 @@
 package util;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class GeradorUtil {
 
 //Crie um método que receba por parâmetro a quantidade de numeros para 
@@ -45,15 +50,100 @@ public class GeradorUtil {
         }
         return senha;
     }
-    
+
 //criar um método que devolva um valor telefone fixo. Começar com (48)3XXX-XXXX
-    public static String gerarTelefone(){
+    public static String gerarTelefone() {
         String numero = "483";
-        return numero;
+        numero += gerarNumero(7);
+        return "(" + numero.substring(0, 2) + ")" + numero.substring(2, 6) + "-"
+                + numero.substring(6);
     }
 
+//criar um método que devolva um valor telefone celular. Começar com (48)9XXXX-XXXX
+    public static String gerarCelular() {
+        String numero = "489";
+        numero += gerarNumero(8);
+        return "(" + numero.substring(0, 2) + ")" + numero.substring(2, 7) + "-"
+                + numero.substring(7);
+    }
+
+//criar um método que devolva um valor do CEP usando máscara (99999-999)
+    public static String gerarCep() {
+        String cep = "";
+        cep += gerarNumero(8);
+        return cep.substring(0, 6) + "-" + cep.substring(6);
+    }
+
+//criar um método que devolva um valor para nome (Vamos criar um vetor com 
+//alguns nomes)
+    public static String gerarNome() {
+        List<String> listaNome = Arrays.asList("matheus", "jonathas", "vitor",
+                "nataly", "luiza", "maria", "silvio",
+                "joão", "vinicius", "heloisa", "livia",
+                "luciana", "carlos", "carla", "mário");
+        Collections.shuffle(listaNome);
+
+        return StringUtils.capitalize(listaNome.get(0));
+    }
+
+//criar um método que devolva um valor para login (Sugestão: chamar o método 
+//gerarNome, deixar a primeira letra em minúscula e depois no final adicionar 
+//com "@".
+    public static String gerarEmail() {
+        List<String> emails = Arrays.asList("@gmail.com", "@hotmail.com.br",
+                "@hotmail.com", "@outlook.com.br", "@outlook.com");
+        Collections.sort(emails);
+
+        return gerarNome().toLowerCase() + emails.get(0);
+    }
+    
+//criar um método private que devolva um valor para sobre (Vamos criar um 
+//vetor com alguns sobrenome)
+    public static String gerarSobrenome() {
+        List<String> listaSobrenome = Arrays.asList("batista", "silva", "rosa",
+                "pereira", "butka", "costa", "ferri",
+                "souza", "oliveira");
+        Collections.shuffle(listaSobrenome);
+
+        return StringUtils.capitalize(listaSobrenome.get(0));
+    }
+    
+// criar um método que devolva um valor para cidade (Vamos criar um vetor com 
+//algumas cidades) 
+    public static String gerarCidade() {
+        List<String> listaCidades = Arrays.asList("palhoça", "são jose", "barreiros",
+                "são paulo", "rio de janeiro", "maceió", "natal",
+                "osasco", "joinville");
+        Collections.shuffle(listaCidades);
+
+        return StringUtils.capitalize(listaCidades.get(0));
+    }
+//criar um método que devolva um valor para bairro (Vamos criar um vetor com 
+//algumas bairros)
+    public static String gerarBairro() {
+        List<String> listaBairros = Arrays.asList("Centro Histórico",
+                "Ponta de Baixo", "Distrito Industrial", "Picadas do Sul", 
+                "Flor de Nápolis","São Luiz", "Roçado", "Potecas", "Serraria");
+        Collections.shuffle(listaBairros);
+
+        return StringUtils.capitalize(listaBairros.get(0));
+    }
+    
+//criar um método que devolva um valor para uf (Vamos criar um vetor 
+//com algumas UFs)
+    public static String gerarUf() {
+        List<String> listaUfs = Arrays.asList("RO",
+                "AM", "SC", "TO", 
+                "CE","PB", "MT", "GO", "MS");
+        Collections.shuffle(listaUfs);
+
+        return listaUfs.get(0);
+    }
+    
+
     public static void main(String[] args) {
-        System.out.println(gerarSenha(8));
+        System.out.println(gerarUf());
+
     }
 
 }
