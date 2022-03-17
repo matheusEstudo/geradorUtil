@@ -1,6 +1,5 @@
 package util;
 
-import com.sun.xml.internal.ws.util.StringUtils;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -83,7 +82,7 @@ public class GeradorUtil {
                 "luciana", "carlos", "carla", "mário");
         Collections.shuffle(listaNome);
 
-        return StringUtils.capitalize(listaNome.get(0));
+        return listaNome.get(0);
     }
 
 //criar um método que devolva um valor para login (Sugestão: chamar o método 
@@ -105,7 +104,7 @@ public class GeradorUtil {
                 "souza", "oliveira");
         Collections.shuffle(listaSobrenome);
 
-        return StringUtils.capitalize(listaSobrenome.get(0));
+        return listaSobrenome.get(0);
     }
     
 // criar um método que devolva um valor para cidade (Vamos criar um vetor com 
@@ -116,7 +115,7 @@ public class GeradorUtil {
                 "osasco", "joinville");
         Collections.shuffle(listaCidades);
 
-        return StringUtils.capitalize(listaCidades.get(0));
+        return listaCidades.get(0);
     }
 //criar um método que devolva um valor para bairro (Vamos criar um vetor com 
 //algumas bairros)
@@ -126,7 +125,7 @@ public class GeradorUtil {
                 "Flor de Nápolis","São Luiz", "Roçado", "Potecas", "Serraria");
         Collections.shuffle(listaBairros);
 
-        return StringUtils.capitalize(listaBairros.get(0));
+        return listaBairros.get(0);
     }
     
 //criar um método que devolva um valor para uf (Vamos criar um vetor 
